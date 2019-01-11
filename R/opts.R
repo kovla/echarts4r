@@ -321,7 +321,8 @@ e_tooltip_pointer_formatter <- function(style = c("decimal", "percent", "currenc
 #' @seealso \href{https://ecomfe.github.io/echarts-doc/public/en/option.html#legend}{Additional arguments}
 #' 
 #' @export
-e_legend <- function(e, show = TRUE, type = c("plain", "scroll"), icons = NULL, ...){
+e_legend <- function(e, show = TRUE, type = c("plain", "scroll"), icons = NULL, 
+                     formatter = NULL, ...){
   
   if(missing(e))
     stop("must pass e", call. = FALSE)
@@ -342,9 +343,14 @@ e_legend <- function(e, show = TRUE, type = c("plain", "scroll"), icons = NULL, 
     
   }
   
+  if (!is.null(formatter))
+    formatter <- htmlwidgets::JS(formatter)
+  
+  
   legend <- list(
     show = show,
     type = type[1],
+    formatter = formatter,
     ...
   )
   
