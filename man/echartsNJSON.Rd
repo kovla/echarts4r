@@ -2,10 +2,13 @@
 % Please edit documentation in R/helpers.R
 \name{e_inspect}
 \alias{e_inspect}
+\alias{e_inspect2}
 \alias{echarts_from_json}
 \title{To & From JSON}
 \usage{
 e_inspect(e, json = FALSE, ...)
+
+e_inspect2(e, json = TRUE, prettify = TRUE, ...)
 
 echarts_from_json(txt)
 }
@@ -15,6 +18,8 @@ echarts_from_json(txt)
 \item{json}{Whether to return the JSON, otherwise returns a \code{list}.}
 
 \item{...}{Additional options to pass to \link[jsonlite]{toJSON}.}
+
+\item{prettify}{Whether to print JSON nicely.}
 
 \item{txt}{JSON character string, url, or file.}
 }

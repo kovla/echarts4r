@@ -5,7 +5,7 @@
 \title{Legend}
 \usage{
 e_legend(e, show = TRUE, type = c("plain", "scroll"), icons = NULL,
-  ...)
+  formatter = NULL, ...)
 }
 \arguments{
 \item{e}{An \code{echarts4r} object as returned by \code{\link{e_charts}}.}

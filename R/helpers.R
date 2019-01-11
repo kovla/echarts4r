@@ -310,6 +310,7 @@ e_aria <- function(e, show = TRUE, ...){
 #' @inheritParams e_bar
 #' @param json Whether to return the JSON, otherwise returns a \code{list}.
 #' @param txt JSON character string, url, or file.
+#' @param prettify Whether to print JSON nicely. 
 #' @param ... Additional options to pass to \link[jsonlite]{toJSON}.
 #' 
 #' @details \code{txt} should contain the full list of options required to build a chart.
@@ -348,6 +349,17 @@ e_inspect <- function(e, json = FALSE, ...){
   
   if(isTRUE(json))
     opts <- jsonlite::toJSON(opts, force = TRUE, auto_unbox = TRUE, null = "null", ...)
+  
+  return(opts)
+}
+
+#' @rdname echartsNJSON
+#' @export
+e_inspect2 <- function(e, json = TRUE, prettify = TRUE, ...){
+  opts <- e$x$opts
+  
+  if(isTRUE(json))
+    opts <- jsonlite::toJSON(opts, force = TRUE, pretty = prettify, auto_unbox = TRUE, null = "null", ...)
   
   return(opts)
 }
